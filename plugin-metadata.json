@@ -1,0 +1,11 @@
+{
+    "name": "change_scoreboard_mapname",
+    "alias": "change_scoreboard_mapname",
+    "display_name": "Change Scoreboard Mapname",
+    "description": "Change Scoreboard Mapname",
+    "author": "xstage",
+    "url": "https://github.com/qstage",
+    "log_tag": "Change Scoreboard Mapname",
+    "license": "Public Domain",
+    "version": "1.0.0"
+}
