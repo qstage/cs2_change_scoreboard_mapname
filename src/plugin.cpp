@@ -37,15 +37,20 @@ bool MMSPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, boo
 
 bool MMSPlugin::Serialize(bf_write &pBuf, const CNetMessage *pData)
 {
+	if (pData == nullptr)
+		RETURN_META_VALUE(MRES_IGNORED, false);
+
 	NetMessageInfo_t *pMessageInfo = pData->GetNetMessage()->GetNetMessageInfo();
 
-	if (pMessageInfo->m_MessageId == svc_ClearAllStringTables)
+	if (pMessageInfo && pMessageInfo->m_MessageId == svc_ClearAllStringTables)
 	{
 		CNetMessagePB<CSVCMsg_ClearAllStringTables> *pMsg = const_cast<CNetMessage*>(pData)->ToPB<CSVCMsg_ClearAllStringTables>();
-		pMsg->set_mapname(pMsg->mapname() + g_sEndingMapName.c_str());
+
+		if (pMsg)
+			pMsg->set_mapname(pMsg->mapname() + g_sEndingMapName.c_str());
 	}
-	
-	return true;
+
+	RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
 bool MMSPlugin::Unload(char *error, size_t maxlen)
