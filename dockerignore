@@ -1,0 +1,15 @@
+# git
+**/.git
+**/.gitignore
+**/.gitattributes
+**/.gitmodules
+
+# IDE/editor/build
+.vs/
+.vscode/
+.cache/
+build*/
+
+# CI and docs
+.github/
+*.md

@@ -1,0 +1,17 @@
+services:
+  builder:
+    build: .
+    image: cs2changescoreboardmapname:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+      - ./build:/app/build
+      - ${HL2SDKCS2}:/deps/hl2sdk-cs2
+      - ${HL2SDKMANIFESTS}:/deps/hl2sdk-manifests
+      - ${MMSOURCE20}:/deps/metamod-source
+    environment:
+      - HL2SDKCS2=/deps/hl2sdk-cs2
+      - HL2SDKMANIFESTS=/deps/hl2sdk-manifests
+      - MMSOURCE20=/deps/metamod-source
+      - MMSOURCE112=/deps/metamod-source
