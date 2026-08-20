@@ -15,7 +15,6 @@ class MMSPlugin : public ISmmPlugin, public IMetamodListener
 public:
 	bool Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool late);
 	bool Unload(char *error, size_t maxlen);
-	bool Serialize(bf_write &pBuf, const CNetMessage *pData);
 public:
 	const char *GetAuthor() { return PLUGIN_AUTHOR; }
 	const char *GetName() { return PLUGIN_DISPLAY_NAME; }
